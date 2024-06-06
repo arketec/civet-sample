@@ -1,0 +1,11 @@
+const data = {
+    a: 1,
+    b: 5
+}
+
+const f = (x: number) => x ** 2
+
+data
+ |> Object.values
+ |> &.map(f)
+ |> console.log

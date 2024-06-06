@@ -1,0 +1,6 @@
+
+describe("tests", () => 
+    it('should run', () => 
+        console.log('hello world')
+    )
+);

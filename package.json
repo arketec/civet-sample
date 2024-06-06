@@ -1,0 +1,30 @@
+{
+  "name": "test-civet",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:civet && npm run build:tsc",
+    "build:clean": "npm run clean && npm run build && npm run clean:ts",
+    "build:civet": "civet -c --typecheck **/*.civet -o .ts",
+    "build:tsc": "tsc",
+    "clean": "rm -rf dist",
+    "clean:ts": "find ./src -type f -name '*.ts' -exec rm {} +",
+    "start": "node ./dist/index",
+    "test": "npm run build:civet && jest",
+    "test:clean": "(jest  || true) && npm run clean:ts"
+  },
+  "devDependencies": {
+    "@danielx/civet": "^0.7.11",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}
